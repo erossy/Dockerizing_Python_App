@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import os
 import socket
 import mysql.connector
@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/hello")
 def helloworld():
-    return "Hello World with Python Flask!"
+    return "Hello World with Python Flask App server from {} to {}".format(socket.gethostname(), request.remote_addr)
 
 #@app.route('/')
 #def hello():
